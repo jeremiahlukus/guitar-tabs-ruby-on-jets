@@ -30,6 +30,8 @@ Jets.application.routes.draw do
     patch "users", to: "users#update", as: :admin_users
     delete "users/:id", to: "users#delete", as: :admin_users
     get "users", to: "users#index", as: :admin_users
+    get "songs", to: "songs#index", as: :admin_songs
+    get "songs/:id", to: "songs#show", as: :admin_songs_show
     get "dashboard", to: "dashboard#show", as: :admin
     root "dashboard#show"
   end

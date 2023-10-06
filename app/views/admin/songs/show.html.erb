@@ -1,0 +1,34 @@
+<main class="w-full flex-grow p-6">
+  <div class="w-full mt-12">
+    <p class="text-xl pb-3 flex items-center">
+    <i class="fas fa-list mr-3"></i> Song
+    </p>
+    <div class="bg-white overflow-auto">
+
+      <% content_for :form_block do %>
+        <%= form_with model: @song, local: true, url: admin_songs_path do |f| %>
+
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, autocomplete: "email", placeholder: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :url %>
+            <%= f.text_field :url, autocomplete: "email", placeholder: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :lyrics %>
+            <%= f.text_area :lyrics, autocomplete: "email", placeholder: true, class: "form-control", size: "60x40" %>
+          </div>
+
+
+          <div class="form-group">
+            <%= f.button "Sign Up", disable_with: "Submitting", class: "btn btn-primary btn-expanded" %>
+          </div>
+        <% end %>
+      <% end %>
+
+      <%= render "revise_auth/shared/form_block" %>
+    </div>
+  </div>
+</main>
