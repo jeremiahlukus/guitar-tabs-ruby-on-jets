@@ -2,7 +2,11 @@ class Admin::SongsController < AdminController
   before_action :set_song, only: [:show, :edit, :destroy, :switch]
 
   def index
-    @songs = Song.all
+    if params['query'].present?
+      @songs = Song.full_text_search_for(params['query'])
+    else
+      @songs = Song.all
+    end
   end
 
   # GET /accounts/1

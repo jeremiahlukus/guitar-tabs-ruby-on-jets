@@ -1,5 +1,5 @@
 class PrewarmJob < ApplicationJob
-  class_timeout 30
+  class_timeout 10
   class_memory 512
   rate '30 minutes'
   def hot_page

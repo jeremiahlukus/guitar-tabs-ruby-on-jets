@@ -46,7 +46,7 @@ class Admin::UsersController < AdminController
   private
 
   def email_params
-    params.require(:user).permit(:first_name, :last_name, :unconfirmed_email)
+    params.require(:user).permit(:first_name, :last_name, :unconfirmed_email, :admin)
   end
 
   # Use callbacks to share common setup or constraints between actions.

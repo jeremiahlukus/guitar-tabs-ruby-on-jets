@@ -1,8 +1,12 @@
 <main class="w-full flex-grow p-6">
-  <h1 class="text-3xl text-black pb-6">Users</h1>
+  <h1 class="text-3xl text-black pb-6">Songs</h1>
+  <%= form_tag admin_songs_path, :method => 'get'  do %>
+    <%= text_field_tag :query, params[:query], autofocus: true,  type: "text", placeholder: 'search for songs', class: "block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" %>
+    <%= submit_tag "Search", type: "submit", class: "btn btn-primary btn-expanded" %>
+  <% end %>
   <div class="w-full mt-6">
     <p class="text-xl pb-3 flex items-center">
-    <i class="fas fa-list mr-3"></i> User Table
+    <i class="fas fa-list mr-3"></i> Song Table
     </p>
     <div class="bg-white overflow-auto">
       <table class="min-w-full bg-white">

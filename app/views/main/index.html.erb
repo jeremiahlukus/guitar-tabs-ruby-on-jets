@@ -2,6 +2,7 @@
 <nav>
   <%= link_to "Home", root_path %>
 
+    <%= link_to "Admin", admin_path %>
   <% if user_signed_in? %>
     <%= link_to "Profile", profile_path %>
     <%= button_to "Log out", 'logout', method: :delete %>

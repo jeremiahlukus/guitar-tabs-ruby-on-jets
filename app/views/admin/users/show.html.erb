@@ -12,6 +12,7 @@
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Created At</th>
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">First Name</th>
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Last Name</th>
+            <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Admin</th>
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Email</th>
             <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Submit</th>
           </tr>
@@ -26,6 +27,10 @@
             <td class="py-4 px-6 border-b border-grey-light">
               <%= form.text_field :last_name, autofocus: true, autocomplete: "name", placeholder: "Jobs", class: "form-control" %>
             </td>
+            <td class="py-4 px-6 border-b border-grey-light">
+              <%= form.check_box :admin, autofocus: true, class: "form-control" %>
+            </td>
+
             <td class="py-4 px-6 border-b border-grey-light">
               <%= form.email_field :unconfirmed_email, autocomplete: "email", placeholder: "you@example.com", class: "form-control" %>
             </td>
