@@ -18,7 +18,7 @@ class Admin::SongsController < AdminController
 
   def update
     @song = Song.find(params[:song][:id])
-    @user.update(song_params)
+    @song.update(song_params)
     redirect_back(fallback_location: root_path)
   end
 

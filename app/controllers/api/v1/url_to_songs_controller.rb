@@ -6221,18 +6221,22 @@ class Api::V1::UrlToSongsController < Api::BaseController
     ]
     @base_url = "https://storage.googleapis.com/joyful-noises"
     @urls.each do |url|
-      song = Song.search_full_text(url.tr("0-9", "").split(".")[0].tr("/", "").tr("_", "").tr("-", "")).first
+      song = Song.full_text_search_for(url.tr("0-9", "").split(".")[0].tr("/", "").tr("_", "").tr("-", "")).first
       puts song
+      next if song.url.present?
       next unless song.present?
-      #next unless song.url.present?
+      next if song.chords.present?
       # if song.updated_at < Time.now.in_time_zone("UTC") - 2.hours
       #   next
       # end
-      song.url = @base_url + url
+      #song.url = @base_url + url
+      #binding.pry
+      byebug
+      song.chords = "a"
       song.save
     rescue
       next
     end
-    head :no_content
+    render json: {}, status: :no_content
   end
 end

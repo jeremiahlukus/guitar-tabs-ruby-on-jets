@@ -21,9 +21,10 @@
             <%= f.text_area :lyrics, autocomplete: "email", placeholder: true, class: "form-control", size: "60x40" %>
           </div>
 
+          <%= f.hidden_field :id %>
 
           <div class="form-group">
-            <%= f.button "Sign Up", disable_with: "Submitting", class: "btn btn-primary btn-expanded" %>
+            <%= f.button "Submit", disable_with: "Submitting", class: "btn btn-primary btn-expanded" %>
           </div>
         <% end %>
       <% end %>
