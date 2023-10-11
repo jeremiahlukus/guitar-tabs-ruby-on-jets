@@ -6187,7 +6187,6 @@ class Api::V1::UrlToSongsController < Api::BaseController
       "/phil311.mp3",
       "/philippians 411-12.mp3",
       "/rev 3-12 - 5_20_14, 3.44 PM.mp3",
-      "/roots by the river - i am a tree  english _ german.mp3",
       "/roots by the river _ i am a tree.mp3",
       "/test.mp3",
       "/the lord has given freedom.mp3",
@@ -6197,46 +6196,31 @@ class Api::V1::UrlToSongsController < Api::BaseController
       "/therefore with joy (04-30-12) usc.mp3",
       "/theres a gospel.mp3",
       "/to You, dear Lord.mp3",
-      "/unser herz ist der grund.mp3",
       "/until the day dawns.mp3",
       "/who can ever know.mp3",
-      "/who is this from the wilderness.mp3",
-      "/zeig mir dein_ weg.mp3",
-      "/나의 간절한 기대와 소망을 따라.mp3",
-      "/하나님은 너를 지키시는 자_ God is our Protector.mp3",
-      "/一件美事-A Noble Deed.mp3",
-      "/一件美事_A Noble Deed.mp3",
-      "/七里香 (Qi Li Xiang) by Jay Chou (cover).mp3",
-      "/主耶穌，我是真愛你 (Jesus Lord, Truly I Love You).mp3",
-      "/主耶穌，我是真愛你_Jesus Lord, Truly I Love You.mp3",
-      "/哦主阿，更多來湧流-Theres A Life Thats Deeper Than Our Mind.mp3",
-      "/哦主阿，更多來湧流_There_s A Life That_s Deeper Than Our Mind.mp3",
-      "/我是主羊-God Is Light, And In Him Is No Darkness At All.mp3",
-      "/我是主羊_God Is Light, And In Him Is No Darkness At All.mp3",
-      "/我神我愛我的永分-My God, My Portion, And My Love.mp3",
-      "/我神我愛我的永分_My God, My Portion, And My Love.mp3",
-      "/榮耀的等候.mp3",
-      "/祷告 (Sister Deng).mp3",
-      "/聽我唱.mp3"
+      "/who is this from the wilderness.mp3"
     ]
     @base_url = "https://storage.googleapis.com/joyful-noises"
-    @urls.each do |url|
-      song = Song.full_text_search_for(url.tr("0-9", "").split(".")[0].tr("/", "").tr("_", "").tr("-", "")).first
-      puts song
-      next if song.url.present?
-      next unless song.present?
-      next if song.chords.present?
-      # if song.updated_at < Time.now.in_time_zone("UTC") - 2.hours
-      #   next
-      # end
-      #song.url = @base_url + url
-      #binding.pry
-      byebug
-      song.chords = "a"
-      song.save
-    rescue
-      next
-    end
+    # @urls.each do |url|
+    #   song = Song.full_text_search_for(url.tr("0-9", "").split(".")[0].tr("/", "").tr("_", "").tr("-", "")).first
+    #   puts song
+    #   next if song.url.present?
+    #   next unless song.present?
+    #   next if song.chords.present?
+    #   # if song.updated_at < Time.now.in_time_zone("UTC") - 2.hours
+    #   #   next
+    #   # end
+    #   puts song.lyrics
+    #   puts "#{@base_url + url}"
+    #   byebug
+    #   # song.url = @base_url + url
+    #   # system "open #{@base_url + url}"
+
+    #   song.chords = "a"
+    #   song.save
+    # rescue
+    #   next
+    # end
     render json: {}, status: :no_content
   end
 end
