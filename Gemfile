@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
+gem 'sentry-jets', github: "jeremiahlukus/sentry-jets"
 gem 'jets', '~> 4.0', '>= 4.0.4'
 #gem "jets", github: "boltops-tools/jets"
 #gem "jets", path: "/Users/jeremiah.parrack/freelance/jets"
