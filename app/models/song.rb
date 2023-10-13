@@ -38,10 +38,10 @@ class Song < ApplicationRecord
     )
   end
 
-  #pg_search_scope :search_full_text,
-  #  against: { title: 'A', lyrics: 'B', song_number: 'C'},
-  #  using: { tsearch: { dictionary: 'english', any_word: true } }
-  # include MeiliSearch::Rails
+  # pg_search_scope :search_full_text,
+  #   against: { title: 'A', lyrics: 'B', song_number: 'C'},
+  #   using: { tsearch: { dictionary: 'english', any_word: true } }
+  # # include MeiliSearch::Rails
   # extend Pagy::Meilisearch
 
   # meilisearch do

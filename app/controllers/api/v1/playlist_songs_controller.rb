@@ -10,7 +10,13 @@ class Api::V1::PlaylistSongsController < Api::BaseController
     #binding.pry
     @playlist = Playlist.find_by(name: params[:id])
     @playlist_songs = PlaylistSong.where(playlist: @playlist)
-    @pagy, @songs = pagy(Song.where(id: @playlist_songs.pluck(:song_id)).order(song_number: "asc"))
+    playlist = Song.where(id: @playlist_songs.pluck(:song_id))
+    if params['query'].present?
+      songs = playlist.full_text_search_for(params['query'])
+    else
+      songs = playlist.order(song_number: "asc")
+    end
+    @pagy, @songs = pagy(songs)
     pagy_headers_merge(@pagy)
     render json: @songs
   end
@@ -36,7 +42,7 @@ class Api::V1::PlaylistSongsController < Api::BaseController
 
   # Only allow a list of trusted parameters through.
   def playlist_song_params
-    params.fetch(:playlist_song).permit(:song_id, :playlist_id)
+    params.fetch(:playlist_song).permit(:song_id, :playlist_id, :query)
 
     # Uncomment to use Pundit permitted attributes
     # params.require(:playlist_song).permit(policy(@playlist_song).permitted_attributes)
