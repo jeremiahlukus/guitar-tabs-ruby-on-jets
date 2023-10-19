@@ -24,6 +24,11 @@ class Api::V1::ChordTabsController < Api::BaseController
 
   # GET /refresh_songs
   def show
-    render json: {tabs: Chord.find_by(name: params[:id]).position}
+    begin
+      render json: {tabs: Chord.find_by(name: params[:id]).position}
+    rescue StandardError
+      render json: {}, status: :not_found
+    end
+
   end
 end
