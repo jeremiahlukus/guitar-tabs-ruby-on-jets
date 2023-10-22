@@ -6,11 +6,11 @@ Jets.application.routes.draw do
   get "authenticated", to: "main#authenticated", as: :authenticated
 
   scope module: :revise_auth do
-
     get "sign_up", to: "registrations#new", as: :sign_up
     post "sign_up", to: "registrations#create"
     get "login", to: "sessions#new", as: :login
     post "login", to: "sessions#create"
+    get "logout", to: "sessions#destroy", as: :logout
 
     get "profile", to: "registrations#edit", as: :profile
     patch "profile", to: "registrations#update"
@@ -21,8 +21,6 @@ Jets.application.routes.draw do
 
     # Email confirmation
     get "profile/email", to: "email#show", as: :profile_email
-
-    delete "logout", to: "sessions#delete"
   end
   # Admin Routes
   namespace :admin do

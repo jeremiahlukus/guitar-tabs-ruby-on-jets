@@ -1,4 +1,5 @@
 class ReviseAuth::SessionsController < ReviseAuthController
+  #before_action :authenticate_user!, only: [:destory, :index]
   def new
   end
 
