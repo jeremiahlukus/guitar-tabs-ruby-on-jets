@@ -1,7 +1,7 @@
 class PrewarmJob < ApplicationJob
   class_timeout 10
   class_memory 512
-  rate '10 minutes'
+  rate '5 minutes'
   def hot_page
     functions = [
       "guitar-dev-revise_auth-registrations_controller-new",

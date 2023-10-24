@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/jeremiahlukus/sentry-jets.git
-  revision: b3b6ec7a5d272989304273f669b3e777560b3de6
-  specs:
-    sentry-jets (0.4.2)
-      sentry-ruby
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -256,6 +249,8 @@ GEM
       rspec-support (~> 3.12.0)
     rspec-support (3.12.1)
     semantic_range (3.0.0)
+    sentry-jets (0.4.2)
+      sentry-ruby
     sentry-ruby (5.12.0)
       concurrent-ruby (~> 1.0, >= 1.0.2)
     serverlessgems (0.4.0)
@@ -293,7 +288,7 @@ DEPENDENCIES
   rack
   revise_auth-jets (~> 0.3.2)
   rspec
-  sentry-jets!
+  sentry-jets (~> 0.4.2)
   shotgun
   zeitwerk (>= 2.5.0)
 
