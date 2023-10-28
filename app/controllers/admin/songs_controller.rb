@@ -21,7 +21,7 @@ class Admin::SongsController < AdminController
     begin
       @song = Song.find(params[:song][:id])
       @song.update(song_params)
-      redirect_to admin_songs_show_path(params[:song][:id])
+       render :index, status: :ok
     rescue StandardError => e
       Sentry.capture_message("error #{e}")
     end
