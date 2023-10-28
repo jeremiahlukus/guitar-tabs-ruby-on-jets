@@ -18,9 +18,13 @@ class Admin::SongsController < AdminController
   end
 
   def update
-    @song = Song.find(params[:song][:id])
-    @song.update(song_params)
-    redirect_to admin_songs_show_path(params[:song][:id])
+    begin
+      @song = Song.find(params[:song][:id])
+      @song.update(song_params)
+      redirect_to admin_songs_show_path(params[:song][:id])
+    rescue StandardError => e
+      Sentry.capture_message("error #{e}")
+    end
   end
 
 
@@ -40,9 +44,8 @@ class Admin::SongsController < AdminController
 
   private
   def set_header
-    response.headers['x-csrf-token'] = params['authenticity_token']
+    response.set_header['x-csrf-token'] = params['authenticity_token']
   end
-
 
   def song_params
     params.require(:song).permit(:title, :lyrics, :url)
