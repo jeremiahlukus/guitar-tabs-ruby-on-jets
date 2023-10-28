@@ -5,7 +5,7 @@
     </p>
     <div class="bg-white overflow-auto">
 
-  <%= form_with model: @user, local: true, url: admin_users_path do |form| %>
+  <%= form_with method: :post, model: @user, local: true, url: admin_users_path do |form| %>
       <table class="text-left w-full border-collapse">
         <thead>
           <tr>

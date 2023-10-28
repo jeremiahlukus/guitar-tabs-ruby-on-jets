@@ -17,9 +17,13 @@ class Admin::SongsController < AdminController
   end
 
   def update
-    @song = Song.find(params[:song][:id])
-    @song.update(song_params)
-    redirect_back(fallback_location: root_path)
+    begin
+      @song = Song.find(params[:song][:id])
+      @song.update(song_params)
+    rescue StandardError => e
+      Sentry.capture_message("error #{e}")
+    end
+    redirect_to admin_songs_show_path(@song.id)
   end
 
 

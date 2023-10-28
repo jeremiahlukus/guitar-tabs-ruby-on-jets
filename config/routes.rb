@@ -25,11 +25,11 @@ Jets.application.routes.draw do
   # Admin Routes
   namespace :admin do
     get "users/:id", to: "users#show", as: :admin_users_show
-    patch "users", to: "users#update", as: :admin_users
+    post "users", to: "users#update", as: :admin_users
     delete "users/:id", to: "users#delete", as: :admin_users
     get "users", to: "users#index", as: :admin_users
     get "songs", to: "songs#index", as: :admin_songs
-    patch "songs", to: "songs#update", as: :admin_songs
+    post "songs", to: "songs#update", as: :admin_songs
     get "songs/:id", to: "songs#show", as: :admin_songs_show
     get "dashboard", to: "dashboard#show", as: :admin
     root "dashboard#show"

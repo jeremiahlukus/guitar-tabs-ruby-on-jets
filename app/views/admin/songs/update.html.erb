@@ -6,7 +6,7 @@
     <div class="bg-white overflow-auto">
 
       <% content_for :form_block do %>
-        <%= form_with model: @song, local: true, method: :post,  url: admin_songs_path do |f| %>
+        <%= form_with model: @song, local: true, url: admin_songs_path do |f| %>
 
           <div class="form-group">
             <%= f.label :title %>
