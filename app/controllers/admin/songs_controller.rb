@@ -19,7 +19,7 @@ class Admin::SongsController < AdminController
   def update
     @song = Song.find(params[:song][:id])
     @song.update(song_params)
-    redirect_back(fallback_location: root_path)
+    redirect_to admin_songs_show_path(params[:song][:id])
   end
 
 

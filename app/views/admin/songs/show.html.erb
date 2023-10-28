@@ -6,7 +6,7 @@
     <div class="bg-white overflow-auto">
 
       <% content_for :form_block do %>
-        <%= form_with model: @song, remote: true, url: admin_songs_path do |f| %>
+        <%= form_with model: @song, local: true, url: admin_songs_path do |f| %>
           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
           <div class="form-group">
