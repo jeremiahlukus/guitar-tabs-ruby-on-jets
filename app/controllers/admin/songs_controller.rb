@@ -1,6 +1,6 @@
 class Admin::SongsController < AdminController
   before_action :set_song, only: [:show, :edit, :destroy, :switch]
-  after_action :set_header, only: [:update]
+  #after_action :set_header, only: [:update]
 
   def index
     if params['query'].present?
@@ -21,7 +21,7 @@ class Admin::SongsController < AdminController
     begin
       @song = Song.find(params[:song][:id])
       @song.update(song_params)
-       render :index, status: :ok
+      render :index, status: :ok
     rescue StandardError => e
       Sentry.capture_message("error #{e}")
     end
