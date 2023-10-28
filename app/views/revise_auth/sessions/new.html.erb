@@ -1,7 +1,8 @@
 <% content_for :form_block do %>
   <div class="mb-4 text-center">
     <h2 class="mb-px">Log In</h2>
-    <%= link_to "Sign Up", sign_up_path, class: "font-semibold" %>
+    <br>
+    <h3><%= link_to "Sign Up", sign_up_path, class: "font-semibold" %></h3>
   </div>
 
   <%= form_with(url: login_path, local: true) do |f| %>
