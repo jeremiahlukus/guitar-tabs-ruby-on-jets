@@ -1,5 +1,6 @@
 class Admin::SongsController < AdminController
   before_action :set_song, only: [:show, :edit, :destroy, :switch]
+  after_action :set_header, only: [:update]
 
   def index
     if params['query'].present?
@@ -38,6 +39,10 @@ class Admin::SongsController < AdminController
 
 
   private
+  def set_header
+    response.headers['x-csrf-token'] = params['authenticity_token']
+  end
+
 
   def song_params
     params.require(:song).permit(:title, :lyrics, :url)
