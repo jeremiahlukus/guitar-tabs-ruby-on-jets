@@ -18,7 +18,6 @@ class Api::V1::PlaylistSongsController < Api::BaseController
     end
     @pagy, @songs = pagy(songs)
     pagy_headers_merge(@pagy)
-    Sentry.capture_message("Showing Playlist #{@playlist.name}")
     render json: @songs
   end
 

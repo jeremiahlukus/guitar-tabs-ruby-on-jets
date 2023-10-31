@@ -28,7 +28,6 @@ class Api::V1::UserFavoriteSongsController < Api::BaseController
     else
       @user_favorite_song = UserFavoriteSong.new(user: current_user, song_id: params[:id])
       if @user_favorite_song.save
-        Sentry.capture_message("Added Fav Song ID: #{params[:id]}")
         render json: {status: :created, location: @user_favorite_song}
       else
         render json: @user_favorite_song.errors, status: :unprocessable_entity
