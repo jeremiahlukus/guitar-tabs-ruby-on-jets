@@ -1,5 +1,5 @@
 class Admin::SongsController < AdminController
-  before_action :set_song, only: [:show, :edit, :destroy, :switch]
+  before_action :set_song, only: [:show, :edit, :destroy]
 
   def index
     if params['query'].present?
@@ -52,4 +52,3 @@ class Admin::SongsController < AdminController
     @song= Song.find(params[:id])
   end
 end
-

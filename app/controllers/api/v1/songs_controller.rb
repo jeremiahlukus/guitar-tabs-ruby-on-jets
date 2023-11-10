@@ -20,11 +20,8 @@ class Api::V1::SongsController < Api::BaseController
 
   # GET /songs/1 or /songs/1.json
   def show
-    if current_user.user_favorite_songs.pluck(:song_id).include? @song.id
-      render json: {is_favorite: true, song_id: @song.id}
-    else
-      render json: {is_favorite: false, song_id: @song.id}
-    end
+    is_favorite = current_user.user_favorite_songs.pluck(:song_id).include? @song.id
+    render json: {is_favorite: is_favorite, song_id: @song.id}
   end
 
   private

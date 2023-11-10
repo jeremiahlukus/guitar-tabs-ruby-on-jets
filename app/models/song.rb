@@ -17,6 +17,18 @@
 #  book_id      :integer
 #  song_base_id :integer
 #
+
+
+def transform_song(song)
+  song_parts = song.split("\n\n").map(&:strip)
+  if song_parts.present?
+  song_parts[1] = "{soc}\n" + song_parts[1]
+  song_parts[2] = "{eoc}\n" + song_parts[2]
+  song = song_parts.join("\n\n")
+  puts song
+  end
+  song
+end
 class Song < ApplicationRecord
    #enum :category, [:general, :scripture_song, :hymn, :childrens], _suffix: true
   # enum :sub_category, [:scripture_song, :hymn, :childrens], prefix: :sub_cat

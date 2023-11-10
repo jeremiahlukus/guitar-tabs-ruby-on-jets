@@ -1,22 +1,23 @@
 <main class="w-full flex-grow p-6">
-  <h1 class="text-3xl text-black pb-6">Dashboard</h1>
+  <h1 class="text-3xl text-black pb-6">Admin Dashboard</h1>
 
-  <div class="flex flex-wrap mt-6">
-    <div class="w-full lg:w-1/2 pr-0 lg:pr-2">
-      <p class="text-xl pb-3 flex items-center">
-      <i class="fas fa-plus mr-3"></i> Active Users
-      </p>
-      <div class="p-6 bg-white">
-        <%= @users.where('updated_at > ?', 1.month.ago).count %>
-      </div>
-    </div>
-    <div class="w-full lg:w-1/2 pl-0 lg:pl-2 mt-12 lg:mt-0">
-      <p class="text-xl pb-3 flex items-center">
-      <i class="fas fa-check mr-3"></i> All Users
-      </p>
-      <div class="p-6 bg-white">
-        <%= @users.count %>
-      </div>
-    </div>
+   <div class="flex flex-wrap mt-6 px-8 gap-x-8">
+    <!-- Active Users -->
+    <%= render partial: 'dashboard_card', locals: { title: 'Active Users', icon: 'fa-users', color: 'blue-600', count: @users.where('updated_at > ?', 1.month.ago).count } %>
+
+     <!-- All Users -->
+    <%= render partial: 'dashboard_card', locals: { title: 'All Users', icon: 'fa-user-check', color: 'green-600', count: @users.count } %>
+
+
+    <!-- Total Songs -->
+    <%= render partial: 'dashboard_card', locals: { title: 'Total Songs', icon: 'fa-music', color: 'red-600', count: @songs.count } %>
+
+
+    <!-- Songs with URLs -->
+    <%= render partial: 'dashboard_card', locals: { title: 'Songs with URLs', icon: 'fa-link', color: 'purple-600', count: @songs_with_urls.count } %>
+
+    <!-- Users with Songs -->
+    <%= render partial: 'dashboard_card', locals: { title: 'Users with Songs', icon: 'fa-user', color: 'yellow-600', count: @users_with_songs.count } %>
+
   </div>
 </main>

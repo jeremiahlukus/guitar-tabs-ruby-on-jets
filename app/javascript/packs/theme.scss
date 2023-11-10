@@ -2,7 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-
+.dashboard-card {
+  margin: 20px;
+  padding: 10px;
+  flex: 0 0 40%; // This means the card will not grow or shrink, and its base size is 40% of the container
+}
 // actiontext
 .link_to_embed {
   white-space: normal;

@@ -1,5 +1,6 @@
 class Api::V1::PlaylistSongsController < Api::BaseController
   #after_action { pagy_headers_merge(@pagy) if @pagy }
+  #skip_before_action :authenticate_api_token!
 
   # Uncomment to enforce Pundit authorization
   # after_action :verify_authorized
@@ -16,9 +17,9 @@ class Api::V1::PlaylistSongsController < Api::BaseController
     else
       songs = playlist.order(song_number: "asc")
     end
-    @pagy, @songs = pagy(songs)
-    pagy_headers_merge(@pagy)
-    render json: @songs
+  #  @pagy, @songs = pagy(songs)
+   # pagy_headers_merge(@pagy)
+    render json: songs
   end
 
   # POST /playlist_songs or /playlist_songs.json

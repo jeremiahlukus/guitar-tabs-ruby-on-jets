@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#000000">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <%= csrf_meta_tags %>
-  <title>Jets App</title>
+  <title>Admin Dashboard</title>
   <%= javascript_pack_tag "application" %>
   <%= stylesheet_pack_tag "theme" %>
 
@@ -33,6 +33,7 @@
         </div>
         <nav class="text-white text-base font-semibold pt-3">
           <%= render partial: "admin/shared/nav_links" %>
+        </nav>
       </aside>
       <div class="w-full flex flex-col h-screen overflow-y-hidden">
         <!-- Desktop Header -->
